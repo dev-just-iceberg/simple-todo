@@ -1,8 +1,30 @@
-# React + Vite
+<h1 align="center">Simple Todo - To better organize yourself</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Simple todo web app made with react js to showcase it's power
 
-Currently, two official plugins are available:
+Currently, extra packages used in this repo:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Bootstrap](https://getbootstrap.com/) for Web Styling
+- [FontAwesome](https://fontawesome.com/) for Icons
+
+## Installation / Getting started
+
+Make sure you have npm installed, just install [Node.js](https://nodejs.org/en)
+Clone git repository:
+
+```
+git clone https://github.com/dev-just-iceberg/simple-todo.git
+cd simple-todo
+```
+
+Install required dependencies:
+
+```
+npm install
+```
+
+Run vite
+
+```
+npm run dev
+```
