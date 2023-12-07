@@ -10,6 +10,7 @@ Currently, extra packages used in this repo:
 ## Installation / Getting started
 
 Make sure you have npm installed, just install [Node.js](https://nodejs.org/en)
+
 Clone git repository:
 
 ```
