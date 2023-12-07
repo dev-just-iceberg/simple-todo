@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Todo = () => {
-  const [todos, setTodos] = useState([]);
+  const initialTodos = JSON.parse(localStorage.getItem('todos')) || [];
+  const [todos, setTodos] = useState(initialTodos);
   const [task, setTask] = useState('');
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = () => {
     if (task.trim() !== '') {
