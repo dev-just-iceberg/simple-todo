@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { Modal, Button } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import React, { useState, useEffect } from "react";
+import { Modal, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const Todo = () => {
-  const initialTodos = JSON.parse(localStorage.getItem('todos')) || [];
+  const initialTodos = JSON.parse(localStorage.getItem("todos")) || [];
   const [todos, setTodos] = useState(initialTodos);
-  const [task, setTask] = useState('');
+  const [task, setTask] = useState("");
   const [selectedTodo, setSelectedTodo] = useState(null);
 
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
+    localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
   const addTodo = async () => {
-    if (task.trim() !== '') {
+    if (task.trim() !== "") {
       setTodos([...todos, { text: task, completed: false }]);
-      setTask('');
+      setTask("");
     }
   };
 
   const fetchCatImage = async (index) => {
     try {
-      const response = await fetch('https://cataas.com/cat');
+      const response = await fetch("https://cataas.com/cat");
       const blob = await response.blob();
       const imageUrl = URL.createObjectURL(blob);
 
@@ -30,7 +30,7 @@ const Todo = () => {
       newTodos[index].catImage = imageUrl;
       setTodos(newTodos);
     } catch (error) {
-      console.error('Error fetching cat image:', error);
+      console.error("Error fetching cat image:", error);
     }
   };
 
@@ -64,7 +64,7 @@ const Todo = () => {
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       addTodo();
     }
   };
@@ -90,9 +90,9 @@ const Todo = () => {
           <li
             key={index}
             style={{
-              textDecoration: todo.completed ? 'line-through' : 'none',
-              color: todo.completed ? '#888' : 'inherit',
-              backgroundColor: todo.completed ? '#f8f9fa' : 'inherit',
+              textDecoration: todo.completed ? "line-through" : "none",
+              color: todo.completed ? "#888" : "inherit",
+              backgroundColor: todo.completed ? "#f8f9fa" : "inherit",
             }}
             onClick={() => toggleTodo(index)}
             className="list-group-item d-flex justify-content-between align-items-center"
@@ -115,9 +115,9 @@ const Todo = () => {
                   removeTodo(index);
                 }}
                 style={{
-                  padding: '0.375rem 0.75rem',
-                  marginLeft: '8px',
-                  position: 'relative',
+                  padding: "0.375rem 0.75rem",
+                  marginLeft: "8px",
+                  position: "relative",
                 }}
               >
                 <i className="fas fa-times"></i>
@@ -130,14 +130,16 @@ const Todo = () => {
       {/* Modal */}
       <Modal show={!!selectedTodo} onHide={closeModal} animation={true}>
         <Modal.Header closeButton>
-          <Modal.Title>
-            {selectedTodo && selectedTodo.text}
-          </Modal.Title>
+          <Modal.Title>{selectedTodo && selectedTodo.text}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {selectedTodo && (
             <>
-              <img src={selectedTodo.catImage} alt="Cat" style={{ maxWidth: '100%' }} />
+              <img
+                src={selectedTodo.catImage}
+                alt="Cat"
+                style={{ maxWidth: "100%" }}
+              />
             </>
           )}
         </Modal.Body>
